@@ -33,10 +33,18 @@ import tripguide from "./tripguide.png";
 import svelte from "./tech/svelte.png";
 import django from "./tech/django.png";
 import cpp from "./tech/c++.png";
+import mazegame from "./mazegame.png";
+import anime_website from "./anime_website.png";
+import photographer_website from "./photographer_website.png";
+import django_docme from "./django_docme.png";
 
 export {
 	logo,
+	django_docme,
+	photographer_website,
+	anime_website,
 	backend,
+	mazegame,
 	creator,
 	mobile,
 	web,
