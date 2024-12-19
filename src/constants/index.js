@@ -241,27 +241,6 @@ const projects = [
 		image: django_docme,
 		source_code_link: "https://github.com/regisx001/django-docme",
 	},
-	{
-		name: "Django Package",
-		description:
-			"A Django package that simplified the process of making documentation for Django Api  from the admin panel directly.",
-		tags: [
-			{
-				name: "Django",
-				color: "green-text-gradient",
-			},
-			{
-				name: "svelte",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "Tailwindcss",
-				color: "blue-text-gradient",
-			},
-		],
-		image: django_docme,
-		source_code_link: "https://github.com/regisx001/django-docme",
-	},
 	// {
 	// 	name: "Job IT",
 	// 	description:
