@@ -37,7 +37,7 @@ import mazegame from "./mazegame.png";
 import anime_website from "./anime_website.png";
 import photographer_website from "./photographer_website.png";
 import django_docme from "./django_docme.png";
-
+import scienceweek from "./scienceweek.png"
 export {
 	logo,
 	django_docme,
@@ -56,6 +56,7 @@ export {
 	figma,
 	git,
 	html,
+	scienceweek,
 	javascript,
 	mongodb,
 	nodejs,

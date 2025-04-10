@@ -30,6 +30,7 @@ import {
 	cpp,
 	photographer_website,
 	django_docme,
+	scienceweek
 } from "../assets";
 
 export const navLinks = [
@@ -240,6 +241,27 @@ const projects = [
 		],
 		image: django_docme,
 		source_code_link: "https://github.com/regisx001/django-docme",
+	},
+	{
+		name: "Event Website",
+		description:
+			"Science Week 2025 – Official Event Web Platform",
+		tags: [
+			{
+				name: "ShadCn/UI",
+				color: "slate-text-gradient",
+			},
+			{
+				name: "svelte",
+				color: "orange-text-gradient",
+			},
+			{
+				name: "Tailwindcss",
+				color: "blue-text-gradient",
+			},
+		],
+		image: scienceweek,
+		source_code_link: "https://github.com/regisx001/scienceweek",
 	},
 	// {
 	// 	name: "Job IT",
