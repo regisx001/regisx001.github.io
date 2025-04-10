@@ -26,19 +26,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build
+      - name: Build project
         env:
-          BASE_PATH: ""
-          # PUBLIC_SMTP: ${{ secrets.SMTP }}
-        run: |
-          pnpm run build
-          touch dist/.nojekyll
+          BASE_PATH: "/${{ github.event.repository.name }}"
+        run: pnpm run build
 
       - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          # this should match the `pages` option in your adapter-static options
-          path: "dist/"
+          path: "dist/" # Ensure this matches your build output directory
 
   deploy:
     needs: build_site
@@ -53,6 +49,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # ✅ Needed for deployment
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
