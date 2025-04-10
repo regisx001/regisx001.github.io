@@ -29,7 +29,9 @@ jobs:
       - name: Build project
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
-        run: pnpm run build
+        run: |
+          pnpm run build
+          touch dist/.nojekyll
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
@@ -49,9 +51,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4 # ✅ Needed for deployment
-
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4 # ✅ Needed for deployment
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
