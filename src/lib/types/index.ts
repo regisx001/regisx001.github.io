@@ -21,6 +21,18 @@ export interface ChatMessage {
 	timestamp: number;
 }
 
+export interface CareerEntry {
+	id: string;
+	role: string;
+	company: string;
+	period: string;
+	location: string;
+	type: 'ml' | 'dev' | 'hybrid';
+	description: string;
+	achievements: string[];
+	tech: string[];
+}
+
 export enum SystemStatus {
 	IDLE = 'IDLE',
 	PROCESSING = 'PROCESSING',
