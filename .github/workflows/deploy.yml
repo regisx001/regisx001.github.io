@@ -31,12 +31,12 @@ jobs:
           BASE_PATH: "/${{ github.event.repository.name }}"
         run: |
           pnpm run build
-          touch dist/.nojekyll
+          touch build/.nojekyll
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist/" # Ensure this matches your build output directory
+          path: "build/" # Ensure this matches your build output directory
 
   deploy:
     needs: build_site

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Architecture | Dev + ML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Spline+Sans+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-midnight: #0A0E16;
+        --color-graphite: #1C1F26;
+        --color-orange: #FF5733;
+        --color-cyan: #21F6FF;
+        --color-bone: #F2F5F7;
+      }
+      body {
+        background-color: var(--color-midnight);
+        color: var(--color-bone);
+        font-family: 'Inter', sans-serif;
+      }
+      .font-display { font-family: 'Spline Sans Mono', monospace; }
+      .font-code { font-family: 'JetBrains Mono', monospace; }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-midnight); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-graphite); 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #333; 
+      }
+
+      /* Animations */
+      @keyframes pulse-glow-orange {
+        0%, 100% { box-shadow: 0 0 5px rgba(255, 87, 51, 0.2); border-color: rgba(255, 87, 51, 0.3); }
+        50% { box-shadow: 0 0 15px rgba(255, 87, 51, 0.5); border-color: rgba(255, 87, 51, 0.8); }
+      }
+      @keyframes pulse-glow-cyan {
+        0%, 100% { box-shadow: 0 0 5px rgba(33, 246, 255, 0.2); border-color: rgba(33, 246, 255, 0.3); }
+        50% { box-shadow: 0 0 15px rgba(33, 246, 255, 0.5); border-color: rgba(33, 246, 255, 0.8); }
+      }
+      @keyframes dash-flow {
+        to {
+          stroke-dashoffset: -100;
+        }
+      }
+      .animate-flow {
+        animation: dash-flow 2s linear infinite;
+      }
+      .grid-bg {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(28, 31, 38, 0.5) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(28, 31, 38, 0.5) 1px, transparent 1px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
