@@ -64,9 +64,10 @@ Matrix:   ${CONTACT_INFO.matrix}
 			};
 		
 		case 'cli':
+		case 'terminal':
 			return {
 				type: 'success',
-				content: 'Already in CLI mode.'
+				content: 'Already in terminal mode.'
 			};
 		
 		default:

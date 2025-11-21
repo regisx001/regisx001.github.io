@@ -151,44 +151,90 @@
 						<span class="w-1 h-5 bg-primary"></span>
 						PROJECT_GALLERY
 					</h3>
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-						{#each [1, 2, 3, 4] as index}
-							<div
-								class="aspect-video bg-dim/50 border border-primary/20 rounded-lg overflow-hidden hover:border-primary/40 transition-all group relative"
-							>
-								<!-- Placeholder -->
+					
+					{#if project.screenshots && project.screenshots.length > 0}
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+							{#each project.screenshots as screenshot, index}
 								<div
-									class="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/50"
+									class="aspect-video bg-dim/50 border border-primary/20 rounded-lg overflow-hidden hover:border-primary/40 transition-all group relative cursor-pointer"
 								>
-									<Image size={48} class="mb-3 text-primary/30" />
-									<span class="font-mono text-xs">SCREENSHOT_{index}</span>
-									<span class="font-mono text-[10px] mt-1 text-muted-foreground/30"
-										>1920x1080</span
+									<img 
+										src={screenshot} 
+										alt={`${project.name} screenshot ${index + 1}`}
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+									/>
+									<!-- Overlay on hover -->
+									<div
+										class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center"
 									>
+										<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+											<ExternalLink size={32} class="text-primary" />
+										</div>
+									</div>
+									<!-- Scanline effect -->
+									<div
+										class="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,255,156,0.02)_50%)] bg-size-[100%_4px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+									></div>
+									<!-- Corner accents -->
+									<div
+										class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<!-- Label -->
+									<div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+										<span class="font-mono text-xs text-primary">SCREENSHOT_{index + 1}</span>
+									</div>
 								</div>
-								<!-- Scanline effect -->
+							{/each}
+						</div>
+					{:else}
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+							{#each [1, 2, 3, 4] as index}
 								<div
-									class="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,255,156,0.02)_50%)] bg-size-[100%_4px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-								></div>
-								<!-- Corner accents -->
-								<div
-									class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
-								></div>
-								<div
-									class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
-								></div>
-								<div
-									class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
-								></div>
-								<div
-									class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
-								></div>
-							</div>
-						{/each}
-					</div>
-					<p class="text-muted-foreground/60 text-sm mt-4 font-mono text-center">
-						// Screenshot placeholders - Ready for integration
-					</p>
+									class="aspect-video bg-dim/50 border border-primary/20 rounded-lg overflow-hidden hover:border-primary/40 transition-all group relative"
+								>
+									<!-- Placeholder -->
+									<div
+										class="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground/50"
+									>
+										<Image size={48} class="mb-3 text-primary/30" />
+										<span class="font-mono text-xs">SCREENSHOT_{index}</span>
+										<span class="font-mono text-[10px] mt-1 text-muted-foreground/30"
+											>1920x1080</span
+										>
+									</div>
+									<!-- Scanline effect -->
+									<div
+										class="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,255,156,0.02)_50%)] bg-size-[100%_4px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+									></div>
+									<!-- Corner accents -->
+									<div
+										class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+									<div
+										class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-primary/0 group-hover:border-primary/50 transition-colors"
+									></div>
+								</div>
+							{/each}
+						</div>
+						<p class="text-muted-foreground/60 text-sm mt-4 font-mono text-center">
+							// Screenshot placeholders - Ready for integration
+						</p>
+					{/if}
 				</div>
 			{/if}
 		</div>

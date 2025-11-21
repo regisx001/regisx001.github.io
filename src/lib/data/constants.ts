@@ -54,7 +54,7 @@ export const SKILLS = [
 
 // Contact information
 export const CONTACT_INFO = {
-	email: 'ezzoubairzarqi@gmail.com',
+	email: 'ezzoubair.zarqi@gmail.com',
 	github: 'https://github.com/regisx001',
 	linkedin: 'https://linkedin.com/in/zarqi-ezzoubair',
 	matrix: '@zarqi:matrix.org'
@@ -76,7 +76,14 @@ export const PROJECTS: Project[] = [
 		tech: ['C++', 'Raylib', 'OOP', 'Game Development'],
 		status: 'ACTIVE',
 		github: 'https://github.com/regisx001',
-		demo: '#'
+		demo: '#',
+		featuredImage: '/projects/maze-game/featured.jpg',
+		screenshots: [
+			'/projects/maze-game/screenshot-1.jpg',
+			'/projects/maze-game/screenshot-2.jpg',
+			'/projects/maze-game/screenshot-3.jpg',
+			'/projects/maze-game/screenshot-4.jpg'
+		]
 	},
 	{
 		id: '2',
@@ -92,7 +99,14 @@ export const PROJECTS: Project[] = [
 		tech: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Anime API'],
 		status: 'ACTIVE',
 		github: 'https://github.com/regisx001',
-		demo: '#'
+		demo: '#',
+		featuredImage: '/projects/anime-website/featured.jpg',
+		screenshots: [
+			'/projects/anime-website/screenshot-1.jpg',
+			'/projects/anime-website/screenshot-2.jpg',
+			'/projects/anime-website/screenshot-3.jpg',
+			'/projects/anime-website/screenshot-4.jpg'
+		]
 	},
 	{
 		id: '3',
@@ -108,7 +122,14 @@ export const PROJECTS: Project[] = [
 		tech: ['Svelte', 'TypeScript', 'Tailwind CSS', 'Photography'],
 		status: 'ACTIVE',
 		github: 'https://github.com/regisx001',
-		demo: '#'
+		demo: '#',
+		featuredImage: '/projects/photographer-portfolio/featured.jpg',
+		screenshots: [
+			'/projects/photographer-portfolio/screenshot-1.jpg',
+			'/projects/photographer-portfolio/screenshot-2.jpg',
+			'/projects/photographer-portfolio/screenshot-3.jpg',
+			'/projects/photographer-portfolio/screenshot-4.jpg'
+		]
 	},
 	{
 		id: '4',
@@ -124,7 +145,14 @@ export const PROJECTS: Project[] = [
 		tech: ['Django', 'Python', 'Svelte', 'Tailwind CSS'],
 		status: 'ACTIVE',
 		github: 'https://github.com/regisx001',
-		demo: '#'
+		demo: '#',
+		featuredImage: '/projects/django-docme/featured.jpg',
+		screenshots: [
+			'/projects/django-docme/screenshot-1.jpg',
+			'/projects/django-docme/screenshot-2.jpg',
+			'/projects/django-docme/screenshot-3.jpg',
+			'/projects/django-docme/screenshot-4.jpg'
+		]
 	},
 	{
 		id: '5',
@@ -140,7 +168,14 @@ export const PROJECTS: Project[] = [
 		tech: ['SvelteKit', 'ShadCN/UI', 'Tailwind CSS', 'TypeScript'],
 		status: 'ACTIVE',
 		github: 'https://github.com/regisx001',
-		demo: '#'
+		demo: '#',
+		featuredImage: '/projects/science-week-2025/featured.jpg',
+		screenshots: [
+			'/projects/science-week-2025/screenshot-1.jpg',
+			'/projects/science-week-2025/screenshot-2.jpg',
+			'/projects/science-week-2025/screenshot-3.jpg',
+			'/projects/science-week-2025/screenshot-4.jpg'
+		]
 	}
 ];
 

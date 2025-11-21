@@ -160,14 +160,29 @@
 					onclick={() => (selectedProject = project)}
 					class="group bg-dim border border-graphite rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_hsl(var(--primary)/0.1)] flex flex-col cursor-pointer relative text-left"
 				>
-				<div
-					class="h-48 bg-primary/5 relative p-6 flex flex-col justify-between overflow-hidden border-b border-primary/10"
-				>
-					<div
-						class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.2),transparent_70%)] group-hover:opacity-30 transition-opacity"
-					></div>						<div class="flex justify-between items-start z-10">
+				<!-- Featured Image Section -->
+				<div class="h-48 relative overflow-hidden border-b border-primary/10">
+					{#if project.featuredImage}
+						<img 
+							src={project.featuredImage} 
+							alt={project.name}
+							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+						/>
+						<!-- Gradient Overlay -->
+						<div class="absolute inset-0 bg-linear-to-t from-dim via-dim/50 to-transparent"></div>
+					{:else}
+						<div class="h-full bg-primary/5 relative p-6 flex flex-col justify-between overflow-hidden">
 							<div
-								class="p-2 bg-black/50 rounded-lg backdrop-blur border border-white/10 text-foreground group-hover:text-primary transition-colors"
+								class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.2),transparent_70%)] group-hover:opacity-30 transition-opacity"
+							></div>
+						</div>
+					{/if}
+					
+					<!-- Overlay Content -->
+					<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+						<div class="flex justify-between items-start">
+							<div
+								class="p-2 bg-black/70 rounded-lg backdrop-blur border border-white/10 text-foreground group-hover:text-primary transition-colors"
 							>
 								<Code2 size={24} />
 							</div>
@@ -186,6 +201,7 @@
 							</span>
 						</div>
 					</div>
+				</div>
 
 					<div class="p-6 flex-1 flex flex-col bg-dim">
 						<h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
@@ -318,56 +334,114 @@
 	</section>
 
 	<!-- Footer -->
-	<footer class="py-12 px-6 border-t border-graphite bg-black/40 mt-12">
-		<div
-			class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
-		>
-			<div class="text-center md:text-left">
-				<div class="text-2xl font-bold text-foreground mb-2 tracking-tighter">
-					SYSTEM_<span class="text-primary">OS</span>
+	<footer class="relative py-16 px-6 border-t border-primary/20 bg-linear-to-b from-console to-black/60 mt-16 overflow-hidden">
+		<!-- Decorative grid background -->
+		<div class="absolute inset-0 opacity-5 pointer-events-none">
+			<div class="absolute inset-0" style="background-image: linear-gradient(hsl(var(--primary)/0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)/0.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
+		</div>
+
+		<div class="max-w-7xl mx-auto relative z-10">
+			<!-- Main footer content -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+				<!-- Brand section -->
+				<div class="text-center md:text-left">
+					<div class="flex items-center gap-2 justify-center md:justify-start mb-4">
+						<div class="w-10 h-10 bg-primary/10 border-2 border-primary rounded flex items-center justify-center">
+							<Code2 class="w-5 h-5 text-primary" />
+						</div>
+						<div class="text-2xl font-bold text-foreground tracking-tighter">
+							ZARQI_<span class="text-primary">PORTFOLIO</span>
+						</div>
+					</div>
+					<p class="text-muted-foreground/70 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+						Digital architect crafting high-performance web experiences. Specialized in modern frameworks and cutting-edge technologies.
+					</p>
+					<div class="flex items-center gap-2 justify-center md:justify-start mt-4 text-xs text-primary/80 font-mono">
+						<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+						<span>SYSTEM ONLINE</span>
+					</div>
 				</div>
-				<p class="text-muted-foreground/60 text-sm max-w-xs">
-					Advanced portfolio interface designed for the modern web. Built with SvelteKit 5,
-					Tailwind, and Cyberpunk aesthetics.
-				</p>
+
+				<!-- Quick links -->
+				<div class="text-center md:text-left">
+					<h3 class="text-sm font-bold text-foreground mb-4 uppercase tracking-widest flex items-center gap-2 justify-center md:justify-start">
+						<span class="w-1 h-4 bg-primary"></span>
+						Quick Access
+					</h3>
+					<nav class="space-y-2">
+						<button onclick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })} class="block text-muted-foreground hover:text-primary transition-colors text-sm">
+							Contact
+						</button>
+						<button onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} class="block text-muted-foreground hover:text-primary transition-colors text-sm">
+							Back to Top
+						</button>
+						<a href="/terminal" class="block text-muted-foreground hover:text-primary transition-colors text-sm">
+							Terminal Mode
+						</a>
+					</nav>
+				</div>
+
+				<!-- Social & contact -->
+				<div class="text-center md:text-left">
+					<h3 class="text-sm font-bold text-foreground mb-4 uppercase tracking-widest flex items-center gap-2 justify-center md:justify-start">
+						<span class="w-1 h-4 bg-primary"></span>
+						Connect
+					</h3>
+					<div class="flex gap-3 justify-center md:justify-start mb-4">
+						<a
+							href={CONTACT_INFO.github}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group w-12 h-12 rounded-lg bg-graphite/30 border border-graphite flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+							aria-label="GitHub"
+						>
+							<Github size={20} class="group-hover:scale-110 transition-transform" />
+						</a>
+						<a
+							href="mailto:{CONTACT_INFO.email}"
+							class="group w-12 h-12 rounded-lg bg-graphite/30 border border-graphite flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+							aria-label="Email"
+						>
+							<Mail size={20} class="group-hover:scale-110 transition-transform" />
+						</a>
+						<a
+							href={CONTACT_INFO.linkedin}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group w-12 h-12 rounded-lg bg-graphite/30 border border-graphite flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+							aria-label="LinkedIn"
+						>
+							<ExternalLink size={20} class="group-hover:scale-110 transition-transform" />
+						</a>
+					</div>
+					<a 
+						href="mailto:{CONTACT_INFO.email}" 
+						class="text-sm text-primary hover:underline font-mono break-all"
+					>
+						{CONTACT_INFO.email}
+					</a>
+				</div>
 			</div>
 
-			<div class="flex gap-6">
-				<a
-					href={CONTACT_INFO.github}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="w-10 h-10 rounded bg-graphite/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all"
-					aria-label="GitHub"
-				>
-					<Github size={20} />
-				</a>
-				<a
-					href="mailto:{CONTACT_INFO.email}"
-					class="w-10 h-10 rounded bg-graphite/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all"
-					aria-label="Email"
-				>
-					<Mail size={20} />
-				</a>
-				<a
-					href={CONTACT_INFO.linkedin}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="w-10 h-10 rounded bg-graphite/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/20 transition-all"
-					aria-label="LinkedIn"
-				>
-					<ExternalLink size={20} />
-				</a>
+			<!-- Bottom bar -->
+			<div class="pt-8 border-t border-graphite/30">
+				<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+					<div class="flex items-center gap-4 text-xs font-mono text-muted-foreground/60">
+						<div class="flex items-center gap-2">
+							<div class="w-1.5 h-1.5 bg-primary/60 rounded-full"></div>
+							<span>SESSION: ACTIVE</span>
+						</div>
+						<div class="hidden sm:block">•</div>
+						<div class="hidden sm:block">ID: 0x{Math.random().toString(16).slice(2, 8).toUpperCase()}</div>
+					</div>
+					<div class="text-xs font-mono text-muted-foreground/60">
+						© {new Date().getFullYear()} <span class="text-primary">ZARQI EZZOUBAIR</span> • Built with SvelteKit 5
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div
-			class="max-w-7xl mx-auto mt-12 pt-8 border-t border-graphite/30 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-muted-foreground/60"
-		>
-			<div>ID: 0x84F2A // SESSION: ACTIVE</div>
-			<div class="mt-2 md:mt-0">
-				&copy; {new Date().getFullYear()} SYSTEM_OS. ALL SYSTEMS OPERATIONAL.
-			</div>
-		</div>
+		<!-- Accent line -->
+		<div class="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
 	</footer>
 </div>

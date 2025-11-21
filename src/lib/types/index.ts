@@ -11,6 +11,8 @@ export interface Project {
 	features?: string[];
 	github?: string;
 	demo?: string;
+	featuredImage?: string;
+	screenshots?: string[];
 }
 
 export interface Experience {
