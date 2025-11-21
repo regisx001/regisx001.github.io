@@ -1,41 +1,54 @@
+import type { Component } from 'svelte';
+
+// Terminal Portfolio Types
 export interface Project {
 	id: string;
-	title: string;
+	name: string;
 	description: string;
+	longDescription?: string;
 	tech: string[];
-	type: 'dev' | 'ml' | 'hybrid';
-	metrics: string;
-	status: 'online' | 'training' | 'archived' | 'optimized';
+	status: 'ACTIVE' | 'BETA' | 'EXPERIMENTAL' | 'ARCHIVED';
+	features?: string[];
+	github?: string;
+	demo?: string;
 }
 
-export interface SystemLog {
-	id: number;
-	timestamp: string;
-	message: string;
-	type: 'info' | 'warn' | 'success' | 'error';
-}
-
-export interface ChatMessage {
-	role: 'user' | 'model';
-	text: string;
-	timestamp: number;
-}
-
-export interface CareerEntry {
+export interface Experience {
 	id: string;
-	role: string;
+	title: string;
 	company: string;
 	period: string;
-	location: string;
-	type: 'ml' | 'dev' | 'hybrid';
 	description: string;
 	achievements: string[];
-	tech: string[];
 }
 
-export enum SystemStatus {
-	IDLE = 'IDLE',
+export interface Skill {
+	name: string;
+	level: 'expert' | 'advanced' | 'intermediate' | 'learning';
+}
+
+export interface SkillCategory {
+	name: string;
+	skills: Skill[];
+}
+
+export interface HistoryItem {
+	type: 'command' | 'text' | 'error' | 'success' | 'info' | 'warning' | 'ai' | 'component';
+	content: string | Component<any>;
+	cwd?: string;
+}
+
+export interface CommandResponse {
+	type: 'text' | 'error' | 'success' | 'info' | 'warning' | 'ai' | 'component';
+	content: string | Component<any>;
+	action?: 'clear' | 'gui' | 'cli';
+}
+
+export enum SystemState {
+	BOOTING = 'BOOTING',
+	READY = 'READY',
 	PROCESSING = 'PROCESSING',
-	OPTIMIZED = 'OPTIMIZED',
 	ERROR = 'ERROR'
 }
+
+export type ViewMode = 'CLI' | 'GUI';

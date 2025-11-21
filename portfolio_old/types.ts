@@ -1,29 +1,46 @@
+
+import React from 'react';
+
+export type OutputType = 'text' | 'success' | 'error' | 'warning' | 'info' | 'component' | 'ai';
+
+export interface HistoryItem {
+  type: 'command' | OutputType;
+  content: string | React.ReactNode;
+  cwd?: string;
+  timestamp?: number;
+}
+
+export interface CommandResponse {
+  type: OutputType;
+  content: string | React.ReactNode;
+  action?: 'clear' | 'none';
+}
+
 export interface Project {
   id: string;
-  title: string;
+  name: string;
+  description: string;
+  longDescription?: string;
+  features?: string[];
+  tech: string[];
+  status: 'live' | 'beta' | 'archived';
+  link?: string;
+  repoLink?: string;
+  demoLink?: string;
+}
+
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
   description: string;
   tech: string[];
-  type: 'dev' | 'ml' | 'hybrid';
-  metrics: string; // e.g., "99% Accuracy" or "50ms Latency"
-  status: 'online' | 'training' | 'archived' | 'optimized';
 }
 
-export interface SystemLog {
-  id: number;
-  timestamp: string;
-  message: string;
-  type: 'info' | 'warn' | 'success' | 'error';
-}
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  timestamp: number;
-}
-
-export enum SystemStatus {
+export enum SystemState {
   IDLE = 'IDLE',
   PROCESSING = 'PROCESSING',
-  OPTIMIZED = 'OPTIMIZED',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
+  BOOTING = 'BOOTING'
 }
