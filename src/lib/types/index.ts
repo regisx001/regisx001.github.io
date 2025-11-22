@@ -43,7 +43,8 @@ export interface HistoryItem {
 export interface CommandResponse {
 	type: 'text' | 'error' | 'success' | 'info' | 'warning' | 'ai' | 'component';
 	content: string | Component<any>;
-	action?: 'clear' | 'gui' | 'cli';
+	action?: 'clear' | 'gui' | 'cli' | 'cd';
+	path?: string;
 }
 
 export enum SystemState {

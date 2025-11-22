@@ -18,6 +18,14 @@
 	let historyIndex = $state(-1);
 	let commandHistory = $state<string[]>([]);
 	
+	// Refocus when cwd changes (directory navigation)
+	$effect(() => {
+		cwd; // Track cwd changes
+		tick().then(() => {
+			setTimeout(() => inputRef?.focus(), 10);
+		});
+	});
+	
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		if (!input.trim() || disabled) return;

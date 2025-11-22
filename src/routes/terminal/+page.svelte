@@ -36,11 +36,22 @@
 		await new Promise(resolve => setTimeout(resolve, 100));
 		
 		try {
-			const response = executeCommand(input);
+			const response = executeCommand(input, cwd);
 			
 			// Handle special actions
 			if (response.action === 'clear') {
 				history = [];
+			} else if (response.action === 'cd') {
+				// Update current working directory
+				if (response.path) {
+					cwd = response.path;
+				}
+				if (response.content) {
+					history = [...history, {
+						type: response.type,
+						content: response.content
+					}];
+				}
 			} else if (response.action === 'gui') {
 				// Add success message first
 				if (response.content) {

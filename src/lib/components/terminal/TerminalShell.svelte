@@ -26,7 +26,13 @@
 		}
 	}
 	
-	function handleTerminalClick() {
+	function handleTerminalClick(e: MouseEvent) {
+		// Only focus if not selecting text
+		const selection = window.getSelection();
+		if (selection && selection.toString().length > 0) {
+			return; // User is selecting text, don't focus
+		}
+		
 		// Focus on the input when clicking anywhere in the terminal
 		const input = terminalRef?.querySelector('input');
 		input?.focus();
@@ -34,7 +40,11 @@
 	
 	function handleKeyPress(e: KeyboardEvent) {
 		if (e.key === 'Enter' || e.key === ' ') {
-			handleTerminalClick();
+			const selection = window.getSelection();
+			if (selection && selection.toString().length > 0) {
+				return; // User has text selected
+			}
+			handleTerminalClick(e as any);
 		}
 	}
 	

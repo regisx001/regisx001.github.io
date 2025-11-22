@@ -34,10 +34,12 @@ export const COMMANDS = [
 	{ cmd: 'about', desc: 'Show information about the operator' },
 	{ cmd: 'projects', desc: 'List deployed systems' },
 	{ cmd: 'contact', desc: 'Display contact information' },
+	{ cmd: 'ls', desc: 'List directory contents' },
+	{ cmd: 'cd <dir>', desc: 'Change directory (projects, .., ~)' },
+	{ cmd: 'cat <file>', desc: 'View file contents (README.md, info.txt, etc)' },
 	{ cmd: 'clear', desc: 'Clear the terminal screen' },
 	{ cmd: 'date', desc: 'Display current system time' },
-	{ cmd: 'gui', desc: 'Switch to GUI mode' },
-	{ cmd: 'cli', desc: 'Switch to terminal mode' }
+	{ cmd: 'gui', desc: 'Switch to GUI mode' }
 ];
 
 // Skills list for About view
