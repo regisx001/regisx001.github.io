@@ -270,3 +270,64 @@ export const EXPERIENCE = [
 		]
 	}
 ];
+
+// Education data for CV section
+// TODO: Update with your actual education from resume.pdf
+export const EDUCATION = [
+	{
+		id: '1',
+		degree: 'Your Degree Title',
+		institution: 'Your University/Institution Name',
+		period: 'Start Year - End Year',
+		description: 'Brief description of your studies and specialization',
+		achievements: [
+			'Achievement 1',
+			'Achievement 2',
+			'Achievement 3'
+		]
+	},
+	{
+		id: '2',
+		degree: 'Previous Degree/Diploma',
+		institution: 'Institution Name',
+		period: 'Start Year - End Year',
+		description: 'Focus areas or specialization',
+		achievements: [
+			'Achievement 1',
+			'Achievement 2'
+		]
+	}
+];
+
+// Certifications data for CV section
+// TODO: Update with your actual certifications from resume.pdf
+export const CERTIFICATIONS = [
+	{
+		id: '1',
+		name: 'Certification Name 1',
+		issuer: 'Issuing Organization',
+		date: 'Year',
+		credential: 'Credential ID (if applicable)'
+	},
+	{
+		id: '2',
+		name: 'Certification Name 2',
+		issuer: 'Issuing Organization',
+		date: 'Year',
+		credential: 'Credential ID (if applicable)'
+	},
+	{
+		id: '3',
+		name: 'Certification Name 3',
+		issuer: 'Issuing Organization',
+		date: 'Year',
+		credential: 'Credential ID (if applicable)'
+	},
+	{
+		id: '4',
+		name: 'Certification Name 4',
+		issuer: 'Issuing Organization',
+		date: 'Year',
+		credential: 'Credential ID (if applicable)'
+	}
+];

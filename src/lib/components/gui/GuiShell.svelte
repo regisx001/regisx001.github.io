@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PROJECTS, SKILL_CATEGORIES, EXPERIENCE, CONTACT_INFO } from '$lib/data/constants';
+	import { PROJECTS, SKILL_CATEGORIES, EXPERIENCE, CONTACT_INFO, EDUCATION, CERTIFICATIONS } from '$lib/data/constants';
 	import type { Project } from '$lib/types';
 	import ProjectDetailModal from './ProjectDetailModal.svelte';
 	import SystemMonitor from './SystemMonitor.svelte';
@@ -14,7 +14,11 @@
 		Monitor,
 		Briefcase,
 		Server,
-		Database
+		Database,
+		GraduationCap,
+		Award,
+		Download,
+		FileText
 	} from '@lucide/svelte';
 
 	let { onSwitchToTerminal } = $props<{
@@ -289,6 +293,111 @@
 		</div>
 	</section>
 
+	<!-- CV / Resume Section -->
+	<section class="py-24 px-6 md:px-20 max-w-7xl mx-auto border-b border-graphite/50">
+		<div class="flex items-center justify-between mb-16">
+			<div class="flex items-center gap-4">
+				<FileText class="text-primary" size={32} />
+				<h2 class="text-3xl font-bold text-foreground tracking-wide">CURRICULUM_VITAE</h2>
+			</div>
+			<a
+				href="/resume.pdf"
+				download
+				class="flex items-center gap-2 px-6 py-3 bg-primary text-console font-bold rounded hover:bg-primary/90 transition-all shadow-[0_0_20px_hsl(var(--primary)/0.3)] group"
+			>
+				<Download size={20} class="group-hover:animate-pulse" />
+				<span class="hidden sm:inline">DOWNLOAD CV</span>
+			</a>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+			<!-- Education -->
+			<div>
+				<div class="flex items-center gap-3 mb-6">
+					<GraduationCap class="text-primary" size={28} />
+					<h3 class="text-2xl font-bold text-foreground">EDUCATION</h3>
+				</div>
+
+				<div class="space-y-6">
+					{#each EDUCATION as edu}
+						<div class="bg-dim/50 border border-graphite p-6 rounded-lg hover:border-primary/30 transition-all group">
+							<div class="flex items-start justify-between mb-3">
+								<div class="flex-1">
+									<h4 class="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+										{edu.degree}
+									</h4>
+									<p class="text-primary/80 font-mono text-sm mt-1">{edu.institution}</p>
+								</div>
+								<span class="text-xs font-mono px-3 py-1 bg-graphite/30 border border-graphite rounded text-muted-foreground whitespace-nowrap">
+									{edu.period}
+								</span>
+							</div>
+							
+							<p class="text-muted-foreground text-sm mb-4">{edu.description}</p>
+							
+							{#if edu.achievements && edu.achievements.length > 0}
+								<ul class="space-y-2">
+									{#each edu.achievements as achievement}
+										<li class="flex items-start gap-2 text-sm text-muted-foreground/80">
+											<span class="text-primary mt-1">▹</span>
+											<span>{achievement}</span>
+										</li>
+									{/each}
+								</ul>
+							{/if}
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Certifications -->
+			<div>
+				<div class="flex items-center gap-3 mb-6">
+					<Award class="text-primary" size={28} />
+					<h3 class="text-2xl font-bold text-foreground">CERTIFICATIONS</h3>
+				</div>
+
+				<div class="space-y-4">
+					{#each CERTIFICATIONS as cert}
+						<div class="bg-dim/50 border border-graphite p-5 rounded-lg hover:border-primary/30 transition-all group">
+							<div class="flex items-start justify-between mb-2">
+								<h4 class="text-base font-bold text-foreground group-hover:text-primary transition-colors flex-1">
+									{cert.name}
+								</h4>
+								<span class="text-xs font-mono px-2 py-1 bg-primary/10 border border-primary/30 rounded text-primary">
+									{cert.date}
+								</span>
+							</div>
+							
+							<p class="text-sm text-muted-foreground mb-2">{cert.issuer}</p>
+							
+							<div class="flex items-center gap-2 text-xs font-mono text-muted-foreground/60">
+								<span class="w-1.5 h-1.5 bg-primary/50 rounded-full"></span>
+								<span>ID: {cert.credential}</span>
+							</div>
+						</div>
+					{/each}
+				</div>
+
+				<!-- Additional Info Card -->
+				<div class="mt-6 bg-primary/5 border border-primary/20 p-5 rounded-lg">
+					<div class="flex items-start gap-3">
+						<div class="p-2 bg-primary/10 rounded">
+							<FileText class="text-primary" size={20} />
+						</div>
+						<div>
+							<h4 class="text-sm font-bold text-foreground mb-2">Professional Portfolio</h4>
+							<p class="text-xs text-muted-foreground leading-relaxed">
+								This interactive portfolio showcases my technical expertise, project experience, and professional achievements. 
+								Download the full CV for detailed information.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Contact Section -->
 	<section id="contact-section" class="py-24 px-6 md:px-20 max-w-7xl mx-auto border-t border-graphite">
 		<div class="flex items-center gap-4 mb-16">
@@ -350,7 +459,7 @@
 							<Code2 class="w-5 h-5 text-primary" />
 						</div>
 						<div class="text-2xl font-bold text-foreground tracking-tighter">
-							ZARQI_<span class="text-primary">PORTFOLIO</span>
+							ZARQI_<span class="text-primary">EZZOUBAIR</span>
 						</div>
 					</div>
 					<p class="text-muted-foreground/70 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">

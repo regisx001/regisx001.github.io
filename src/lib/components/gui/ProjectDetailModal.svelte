@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Project } from '$lib/types';
-	import { X, ExternalLink, Github, Check, Terminal, Image } from '@lucide/svelte';
+	import { X, ExternalLink, Github, Check, Terminal, Image, ChevronLeft, ChevronRight } from '@lucide/svelte';
 
 	let { project, onClose } = $props<{
 		project: Project;
@@ -8,6 +8,8 @@
 	}>();
 
 	let activeTab = $state<'overview' | 'screenshots'>('overview');
+	let lightboxOpen = $state(false);
+	let currentImageIndex = $state(0);
 
 	function handleBackdropClick(e: MouseEvent) {
 		if (e.target === e.currentTarget) {
@@ -17,7 +19,38 @@
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') {
-			onClose();
+			if (lightboxOpen) {
+				lightboxOpen = false;
+			} else {
+				onClose();
+			}
+		} else if (lightboxOpen && project.screenshots) {
+			if (e.key === 'ArrowRight') {
+				currentImageIndex = (currentImageIndex + 1) % project.screenshots.length;
+			} else if (e.key === 'ArrowLeft') {
+				currentImageIndex = (currentImageIndex - 1 + project.screenshots.length) % project.screenshots.length;
+			}
+		}
+	}
+
+	function openLightbox(index: number) {
+		currentImageIndex = index;
+		lightboxOpen = true;
+	}
+
+	function closeLightbox() {
+		lightboxOpen = false;
+	}
+
+	function nextImage() {
+		if (project.screenshots) {
+			currentImageIndex = (currentImageIndex + 1) % project.screenshots.length;
+		}
+	}
+
+	function prevImage() {
+		if (project.screenshots) {
+			currentImageIndex = (currentImageIndex - 1 + project.screenshots.length) % project.screenshots.length;
 		}
 	}
 </script>
@@ -155,7 +188,8 @@
 					{#if project.screenshots && project.screenshots.length > 0}
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							{#each project.screenshots as screenshot, index}
-								<div
+								<button
+									onclick={() => openLightbox(index)}
 									class="aspect-video bg-dim/50 border border-primary/20 rounded-lg overflow-hidden hover:border-primary/40 transition-all group relative cursor-pointer"
 								>
 									<img 
@@ -192,7 +226,7 @@
 									<div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
 										<span class="font-mono text-xs text-primary">SCREENSHOT_{index + 1}</span>
 									</div>
-								</div>
+								</button>
 							{/each}
 						</div>
 					{:else}
@@ -273,3 +307,98 @@
 		</div>
 	</div>
 </div>
+
+<!-- Lightbox for fullscreen image viewing -->
+{#if lightboxOpen && project.screenshots && project.screenshots.length > 0}
+	<div
+		class="fixed inset-0 bg-black/95 backdrop-blur-sm z-60 flex items-center justify-center p-4 animate-in fade-in duration-200"
+		onclick={closeLightbox}
+		role="dialog"
+		aria-modal="true"
+		aria-label="Image lightbox"
+	>
+		<!-- Close button -->
+		<button
+			onclick={closeLightbox}
+			class="absolute top-4 right-4 w-12 h-12 rounded-full bg-graphite/50 hover:bg-graphite border border-graphite hover:border-primary text-muted-foreground hover:text-primary transition-all z-10 flex items-center justify-center"
+			aria-label="Close lightbox"
+		>
+			<X size={24} />
+		</button>
+
+		<!-- Image counter -->
+		<div class="absolute top-4 left-4 bg-black/80 backdrop-blur px-4 py-2 rounded-lg border border-primary/30 z-10">
+			<span class="font-mono text-sm text-primary">
+				{currentImageIndex + 1} / {project.screenshots.length}
+			</span>
+		</div>
+
+		<!-- Navigation buttons -->
+		{#if project.screenshots.length > 1}
+			<button
+				onclick={(e) => { e.stopPropagation(); prevImage(); }}
+				class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-graphite/50 hover:bg-graphite border border-graphite hover:border-primary text-muted-foreground hover:text-primary transition-all z-10 flex items-center justify-center"
+				aria-label="Previous image"
+			>
+				<ChevronLeft size={24} />
+			</button>
+			<button
+				onclick={(e) => { e.stopPropagation(); nextImage(); }}
+				class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-graphite/50 hover:bg-graphite border border-graphite hover:border-primary text-muted-foreground hover:text-primary transition-all z-10 flex items-center justify-center"
+				aria-label="Next image"
+			>
+				<ChevronRight size={24} />
+			</button>
+		{/if}
+
+		<!-- Main image -->
+		<div
+			onclick={(e) => e.stopPropagation()}
+			class="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center"
+		>
+			<img
+				src={project.screenshots[currentImageIndex]}
+				alt={`${project.name} screenshot ${currentImageIndex + 1}`}
+				class="max-w-full max-h-full object-contain rounded-lg shadow-2xl shadow-primary/20"
+			/>
+			
+			<!-- Image info -->
+			<div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 to-transparent p-6">
+				<div class="flex items-center justify-between">
+					<div>
+						<h3 class="text-xl font-bold text-primary mb-1">{project.name}</h3>
+						<p class="text-sm text-muted-foreground font-mono">
+							SCREENSHOT_{currentImageIndex + 1}
+						</p>
+					</div>
+					{#if project.screenshots.length > 1}
+						<div class="flex gap-2">
+							{#each project.screenshots as _, index}
+								<button
+									onclick={(e) => { e.stopPropagation(); currentImageIndex = index; }}
+									class={`w-2 h-2 rounded-full transition-all ${
+										index === currentImageIndex
+											? 'bg-primary w-8'
+											: 'bg-graphite hover:bg-primary/50'
+									}`}
+									aria-label={`Go to screenshot ${index + 1}`}
+								></button>
+							{/each}
+						</div>
+					{/if}
+				</div>
+			</div>
+		</div>
+
+		<!-- Keyboard hint -->
+		<div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur px-4 py-2 rounded-lg border border-graphite/50">
+			<span class="font-mono text-xs text-muted-foreground">
+				Press <kbd class="px-2 py-0.5 bg-graphite rounded text-primary">ESC</kbd> to close
+				{#if project.screenshots.length > 1}
+					• <kbd class="px-2 py-0.5 bg-graphite rounded text-primary">←</kbd>
+					<kbd class="px-2 py-0.5 bg-graphite rounded text-primary">→</kbd> to navigate
+				{/if}
+			</span>
+		</div>
+	</div>
+{/if}
