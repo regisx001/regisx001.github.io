@@ -56,14 +56,41 @@ export const SKILLS = [
 
 // Contact information
 export const CONTACT_INFO = {
-	email: 'ezzoubair.zarqi@gmail.com',
+	email: 'zarqi.ezzoubair@gmail.com',
 	github: 'https://github.com/regisx001',
-	linkedin: 'https://linkedin.com/in/zarqi-ezzoubair',
-	matrix: '@zarqi:matrix.org'
+	linkedin: 'https://linkedin.com/in/ezzoubair-zarqi',
+	phone: '+212 640 892055',
+	location: 'Ouezzane, Morocco'
 };
 
 // Projects with enhanced details for GUI modal
 export const PROJECTS: Project[] = [
+	{
+		id: '1',
+		name: 'Cyberforce Website',
+		description: 'CyberForce — FSTT’s cybersecurity club website (est. 2025) for events, resources, and member management; built with Svelte and PocketBase.',
+		longDescription: 'CyberForce — the official cybersecurity club of FSTT (Faculté des Sciences et Techniques de Tanger), established in 2025. This repo hosts the club website and member hub to announce events, share learning resources, showcase projects, and manage memberships. Built with Svelte/SvelteKit and TypeScript on the frontend (shadcn-svelte, Tailwind) with PocketBase powering auth and lightweight data storage.',
+		features : [ 'Responsive SvelteKit frontend with accessible shadcn-svelte UI components', 'PocketBase-powered authentication and role-based admin management', 'Event listing, RSVP, and calendar integration for workshops and meetups', 'Resource library with categories, search, and downloadable materials', 'Project showcases with Markdown support and image galleries', 'Admin dashboard for managing members, events, and resources', 'Real-time announcements and notifications for members', 'Dark mode and theme customization via TailwindCSS', 'Performance optimizations: SSR, code-splitting, and fast page transitions', 'i18n-ready structure for multilingual support' ],
+		tech: ['Sveltekit', 'Shadcn/Svelte', 'Pocketbase', 'Web Developement'],
+		status: 'ACTIVE',
+		github: 'https://github.com/regisx001/maze_game',
+		demo: 'https://private-user-images.githubusercontent.com/98271602/397057605-94b07585-b81d-4ecb-b276-f338f212434f.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjM4MjE1NjksIm5iZiI6MTc2MzgyMTI2OSwicGF0aCI6Ii85ODI3MTYwMi8zOTcwNTc2MDUtOTRiMDc1ODUtYjgxZC00ZWNiLWIyNzYtZjMzOGYyMTI0MzRmLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTIyVDE0MjEwOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFlZGZkYzU5MzMwY2ZiN2M0N2EwNzY4MmViZDljODExYjc2MGUzYWIwNjZjYTkxYTVmMjBiN2Y5OWY0YTY1ZWQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.AHTQNwGbw2mKRtDQIIpAstMBRXZplOUdTrDPum9-3Bo',
+		featuredImage: '/projects/cyberforce/featured-cyberforce.png',
+		screenshots: [
+			'/projects/cyberforce/featured-cyberforce.png',
+			'/projects/cyberforce/cyberforce-screenshot-1.png',
+			'/projects/cyberforce/cyberforce-screenshot-2.png',
+			'/projects/cyberforce/cyberforce-screenshot-3.png',
+			'/projects/cyberforce/cyberforce-screenshot-4.png',
+			'/projects/cyberforce/cyberforce-screenshot-5.png',
+			'/projects/cyberforce/cyberforce-screenshot-6.png',
+			'/projects/cyberforce/cyberforce-screenshot-7.png',
+			'/projects/cyberforce/cyberforce-screenshot-8.png',
+			'/projects/cyberforce/cyberforce-screenshot-9.png',
+			'/projects/cyberforce/cyberforce-screenshot-10.png',
+			'/projects/cyberforce/cyberforce-screenshot-11.png',
+		]
+	},
 	{
 		id: '1',
 		name: 'Maze Game',
@@ -178,45 +205,43 @@ export const PROJECTS: Project[] = [
 // Categorized skills for GUI view
 export const SKILL_CATEGORIES = [
 	{
-		name: 'Frontend Engineering',
+		name: 'Languages',
 		skills: [
-			{ name: 'SvelteKit', level: 'expert' as const },
-			{ name: 'TypeScript', level: 'expert' as const },
-			{ name: 'Tailwind CSS', level: 'expert' as const },
-			{ name: 'Svelte', level: 'expert' as const },
-			{ name: 'HTML5', level: 'expert' as const },
-			{ name: 'CSS3', level: 'expert' as const }
-		]
-	},
-	{
-		name: 'Backend Systems',
-		skills: [
-			{ name: 'Django', level: 'advanced' as const },
+			{ name: 'Java', level: 'expert' as const },
+			{ name: 'JavaScript/TypeScript', level: 'expert' as const },
 			{ name: 'Python', level: 'advanced' as const },
-			{ name: 'Node.js', level: 'advanced' as const },
-			{ name: 'MongoDB', level: 'intermediate' as const },
-			{ name: 'REST APIs', level: 'expert' as const },
-			{ name: 'Docker', level: 'intermediate' as const }
-		]
-	},
-	{
-		name: 'Core Concepts',
-		skills: [
-			{ name: 'Game Development', level: 'advanced' as const },
 			{ name: 'C++', level: 'advanced' as const },
-			{ name: 'OOP', level: 'expert' as const },
-			{ name: 'System Design', level: 'advanced' as const },
-			{ name: 'Git', level: 'expert' as const },
-			{ name: 'Figma', level: 'intermediate' as const }
+			{ name: 'SQL', level: 'advanced' as const }
 		]
 	},
 	{
-		name: 'Tools & Frameworks',
+		name: 'Frameworks & Technologies',
 		skills: [
-			{ name: 'Raylib', level: 'advanced' as const },
-			{ name: 'ShadCN/UI', level: 'expert' as const },
-			{ name: 'Anime APIs', level: 'intermediate' as const },
-			{ name: 'Package Development', level: 'advanced' as const }
+			{ name: 'Spring Boot', level: 'expert' as const },
+			{ name: 'SvelteKit', level: 'expert' as const },
+			{ name: 'React', level: 'advanced' as const },
+			{ name: 'Django', level: 'advanced' as const },
+			{ name: 'Node.js', level: 'advanced' as const }
+		]
+	},
+	{
+		name: 'Developer Tools',
+		skills: [
+			{ name: 'Git', level: 'expert' as const },
+			{ name: 'VS Code', level: 'expert' as const },
+			{ name: 'Docker', level: 'advanced' as const },
+			{ name: 'Postman', level: 'advanced' as const },
+			{ name: 'Github Actions', level: 'intermediate' as const }
+		]
+	},
+	{
+		name: 'Databases & AI',
+		skills: [
+			{ name: 'MySQL', level: 'advanced' as const },
+			{ name: 'PostgreSQL', level: 'advanced' as const },
+			{ name: 'ChromaDB', level: 'intermediate' as const },
+			{ name: 'RAG', level: 'advanced' as const },
+			{ name: 'LangChain', level: 'advanced' as const }
 		]
 	}
 ];
@@ -225,111 +250,111 @@ export const SKILL_CATEGORIES = [
 export const EXPERIENCE = [
 	{
 		id: '1',
-		title: 'Full Stack Developer',
-		company: 'Freelance',
-		period: '2023 - Present',
-		description: 'Building modern web applications and platforms using cutting-edge technologies, focusing on clean architecture and exceptional user experiences.',
+		title: 'MEAN Stack Developer',
+		company: 'Smart Automation Technologies',
+		period: 'Apr. 2025 - Sep. 2025',
+		description: 'Tangier, Morocco - Developed complete web platform using MEAN stack with intelligent chatbot integration.',
 		achievements: [
-			'Developed 5+ production-ready web applications using SvelteKit and TypeScript',
-			'Created Django package for automated API documentation (django-docme)',
-			'Built high-performance game engine using C++ and Raylib'
+			'Analyzed functional requirements and conducted comparative study of competing platforms',
+			'Modeled platform architecture using UML diagrams and designed mockups for user interface',
+			'Complete development of the platform using MEAN stack',
+			'Created intelligent chatbot based on RAG (Retrieval-Augmented Generation) method to assist users'
 		]
 	},
 	{
 		id: '2',
-		title: 'Web Developer',
-		company: 'Science Week 2025',
-		period: '2024 - 2025',
-		description: 'Developed official event web platform for Science Week 2025, managing event information and participant engagement.',
+		title: 'Full Stack Developer',
+		company: 'Freelance Projects',
+		period: '2024 - Present',
+		description: 'Junior full stack developer specializing in SvelteKit, Java Spring Boot and Artificial Intelligence.',
 		achievements: [
-			'Architected event management system with SvelteKit',
-			'Implemented responsive UI with ShadCN/UI components',
-			'Optimized performance for high-traffic event periods'
-		]
-	},
-	{
-		id: '3',
-		title: 'Backend Developer',
-		company: 'Personal Projects',
-		period: '2022 - 2023',
-		description: 'Focused on backend development and API design, creating robust and scalable server-side applications.',
-		achievements: [
-			'Built Django REST APIs with comprehensive documentation',
-			'Developed custom Django packages for code reusability',
-			'Implemented database optimization strategies'
-		]
-	},
-	{
-		id: '4',
-		title: 'Game Developer',
-		company: 'Independent',
-		period: '2021 - 2022',
-		description: 'Developed 2D puzzle game with procedurally generated mazes using C++ and Raylib framework.',
-		achievements: [
-			'Implemented procedural maze generation algorithms',
-			'Created smooth gameplay mechanics with Raylib',
-			'Applied OOP principles for clean, maintainable code'
+			'Developed complete web platforms with modern architectures and interfaces',
+			'Integrated RAG chatbots for intelligent user assistance',
+			'Portfolio including e-commerce, intelligent blogs and data processing applications'
 		]
 	}
 ];
 
 // Education data for CV section
-// TODO: Update with your actual education from resume.pdf
 export const EDUCATION = [
 	{
 		id: '1',
-		degree: 'Your Degree Title',
-		institution: 'Your University/Institution Name',
-		period: 'Start Year - End Year',
-		description: 'Brief description of your studies and specialization',
+		degree: 'Master in Artificial Intelligence and Data Science (IASD)',
+		institution: 'Faculty of Science and Technology',
+		period: 'Sep. 2025 - Present',
+		description: 'Tangier, Morocco',
 		achievements: [
-			'Achievement 1',
-			'Achievement 2',
-			'Achievement 3'
+			'Specialized training in Artificial Intelligence and Data Science',
+			'Advanced skills in machine learning and deep learning',
+			'Big data processing and development of innovative AI solutions'
 		]
 	},
 	{
 		id: '2',
-		degree: 'Previous Degree/Diploma',
-		institution: 'Institution Name',
-		period: 'Start Year - End Year',
-		description: 'Focus areas or specialization',
+		degree: 'Bachelor in Science and Technology',
+		institution: 'Faculty of Science and Technology',
+		period: 'Sep. 2024 - Jun. 2025',
+		description: 'IDAI Track - Software Application Development Engineering, Tangier, Morocco',
 		achievements: [
-			'Achievement 1',
-			'Achievement 2'
+			'Training focused on design, development and management of innovative IT solutions',
+			'Specialization in Software Application Development Engineering'
+		]
+	},
+	{
+		id: '3',
+		degree: 'DEUST in Science and Technology',
+		institution: 'Faculty of Science and Technology',
+		period: 'Sep. 2021 - Jun. 2024',
+		description: 'Common Core GE-GM, Tangier, Morocco',
+		achievements: [
+			'Solid foundational training in fundamental sciences',
+			'General engineering and mechanical techniques'
 		]
 	}
 ];
 
-// Certifications data for CV section
-// TODO: Update with your actual certifications from resume.pdf
+// Certifications & Relevant Coursework
 export const CERTIFICATIONS = [
 	{
 		id: '1',
-		name: 'Certification Name 1',
-		issuer: 'Issuing Organization',
-		date: 'Year',
-		credential: 'Credential ID (if applicable)'
+		name: 'Design Patterns',
+		issuer: 'Faculty of Science and Technology',
+		date: '2024-2025',
+		credential: 'Coursework'
 	},
 	{
 		id: '2',
-		name: 'Certification Name 2',
-		issuer: 'Issuing Organization',
-		date: 'Year',
-		credential: 'Credential ID (if applicable)'
+		name: 'Software Engineering',
+		issuer: 'Faculty of Science and Technology',
+		date: '2024-2025',
+		credential: 'Coursework'
 	},
 	{
 		id: '3',
-		name: 'Certification Name 3',
-		issuer: 'Issuing Organization',
-		date: 'Year',
-		credential: 'Credential ID (if applicable)'
+		name: 'Artificial Intelligence',
+		issuer: 'Faculty of Science and Technology',
+		date: '2025',
+		credential: 'Coursework'
 	},
 	{
 		id: '4',
-		name: 'Certification Name 4',
-		issuer: 'Issuing Organization',
-		date: 'Year',
-		credential: 'Credential ID (if applicable)'
+		name: 'Database Management Systems',
+		issuer: 'Faculty of Science and Technology',
+		date: '2024',
+		credential: 'Coursework'
+	},
+	{
+		id: '5',
+		name: 'Algorithm Analysis',
+		issuer: 'Faculty of Science and Technology',
+		date: '2024',
+		credential: 'Coursework'
+	},
+	{
+		id: '6',
+		name: 'UML Modeling',
+		issuer: 'Faculty of Science and Technology',
+		date: '2024',
+		credential: 'Coursework'
 	}
 ];
