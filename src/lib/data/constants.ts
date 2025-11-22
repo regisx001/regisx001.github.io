@@ -75,14 +75,16 @@ export const PROJECTS: Project[] = [
 		],
 		tech: ['C++', 'Raylib', 'OOP', 'Game Development'],
 		status: 'ACTIVE',
-		github: 'https://github.com/regisx001',
-		demo: '#',
-		featuredImage: '/projects/maze-game/featured.jpg',
+		github: 'https://github.com/regisx001/maze_game',
+		demo: 'https://private-user-images.githubusercontent.com/98271602/397057605-94b07585-b81d-4ecb-b276-f338f212434f.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjM4MjE1NjksIm5iZiI6MTc2MzgyMTI2OSwicGF0aCI6Ii85ODI3MTYwMi8zOTcwNTc2MDUtOTRiMDc1ODUtYjgxZC00ZWNiLWIyNzYtZjMzOGYyMTI0MzRmLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTExMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMTIyVDE0MjEwOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFlZGZkYzU5MzMwY2ZiN2M0N2EwNzY4MmViZDljODExYjc2MGUzYWIwNjZjYTkxYTVmMjBiN2Y5OWY0YTY1ZWQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.AHTQNwGbw2mKRtDQIIpAstMBRXZplOUdTrDPum9-3Bo',
+		featuredImage: '/projects/maze-game/featured-maze-game.png',
 		screenshots: [
-			'/projects/maze-game/screenshot-1.jpg',
-			'/projects/maze-game/screenshot-2.jpg',
-			'/projects/maze-game/screenshot-3.jpg',
-			'/projects/maze-game/screenshot-4.jpg'
+			'/projects/maze-game/featured-maze-game.png',
+			'/projects/maze-game/maze-game-screenshot-1.png',
+			'/projects/maze-game/maze-game-screenshot-2.png',
+			'/projects/maze-game/maze-game-screenshot-3.png',
+			'/projects/maze-game/maze-game-screenshot-4.png',
+			'/projects/maze-game/maze-game-screenshot-5.png'
 		]
 	},
 	{
@@ -97,15 +99,12 @@ export const PROJECTS: Project[] = [
 			'Fast loading with SvelteKit optimizations'
 		],
 		tech: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Anime API'],
-		status: 'ACTIVE',
-		github: 'https://github.com/regisx001',
+		status: 'ARCHIVED',
+		github: 'https://github.com/regisx001/animes',
 		demo: '#',
-		featuredImage: '/projects/anime-website/featured.jpg',
+		featuredImage: '/projects/anime-website/featured-anime-website.png',
 		screenshots: [
-			'/projects/anime-website/screenshot-1.jpg',
-			'/projects/anime-website/screenshot-2.jpg',
-			'/projects/anime-website/screenshot-3.jpg',
-			'/projects/anime-website/screenshot-4.jpg'
+			'/projects/anime-website/featured-anime-website.png'
 		]
 	},
 	{
@@ -120,15 +119,12 @@ export const PROJECTS: Project[] = [
 			'Clean, minimal UI to highlight photography'
 		],
 		tech: ['Svelte', 'TypeScript', 'Tailwind CSS', 'Photography'],
-		status: 'ACTIVE',
+		status: 'ARCHIVED',
 		github: 'https://github.com/regisx001',
 		demo: '#',
-		featuredImage: '/projects/photographer-portfolio/featured.jpg',
+		featuredImage: '/projects/photographer-portfolio/featured-photographer-portfolio.png',
 		screenshots: [
-			'/projects/photographer-portfolio/screenshot-1.jpg',
-			'/projects/photographer-portfolio/screenshot-2.jpg',
-			'/projects/photographer-portfolio/screenshot-3.jpg',
-			'/projects/photographer-portfolio/screenshot-4.jpg'
+			'/projects/photographer-portfolio/featured-photographer-portfolio.png'
 		]
 	},
 	{
@@ -143,15 +139,12 @@ export const PROJECTS: Project[] = [
 			'Integration with Django admin panel'
 		],
 		tech: ['Django', 'Python', 'Svelte', 'Tailwind CSS'],
-		status: 'ACTIVE',
+		status: 'ARCHIVED',
 		github: 'https://github.com/regisx001',
 		demo: '#',
-		featuredImage: '/projects/django-docme/featured.jpg',
+		featuredImage: '/projects/django-docme/featured-dajngo-docme.png',
 		screenshots: [
-			'/projects/django-docme/screenshot-1.jpg',
-			'/projects/django-docme/screenshot-2.jpg',
-			'/projects/django-docme/screenshot-3.jpg',
-			'/projects/django-docme/screenshot-4.jpg'
+		'/projects/django-docme/featured-dajngo-docme.png'
 		]
 	},
 	{
@@ -167,14 +160,15 @@ export const PROJECTS: Project[] = [
 		],
 		tech: ['SvelteKit', 'ShadCN/UI', 'Tailwind CSS', 'TypeScript'],
 		status: 'ACTIVE',
-		github: 'https://github.com/regisx001',
-		demo: '#',
-		featuredImage: '/projects/science-week-2025/featured.jpg',
+		github: 'https://github.com/regisx001/scienceweek',
+		demo: 'https://regisx001.github.io/scienceweek/',
+		featuredImage: '/projects/science-week-2025/featured-scienceweek.png',
 		screenshots: [
-			'/projects/science-week-2025/screenshot-1.jpg',
-			'/projects/science-week-2025/screenshot-2.jpg',
-			'/projects/science-week-2025/screenshot-3.jpg',
-			'/projects/science-week-2025/screenshot-4.jpg'
+			'/projects/science-week-2025/featured-scienceweek.png',
+			'/projects/science-week-2025/scienceweek-screenshot-1.png',
+			'/projects/science-week-2025/scienceweek-screenshot-2.png',
+			'/projects/science-week-2025/scienceweek-screenshot-3.png',
+			'/projects/science-week-2025/scienceweek-screenshot-4.png',
 		]
 	}
 ];
